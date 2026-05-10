@@ -9,20 +9,180 @@
         <Grid RowDefinitions="100,100, auto,*, 48"
               ColumnDefinitions="*,*" RowSpacing="16" ColumnSpacing="16">
             
-            <!-- Platzhalter für Kacheln -->
-            <BoxView Grid.Row="0" Grid.Column="0" BackgroundColor="DarkGray"/>
-            <BoxView Grid.Row="0" Grid.Column="1" BackgroundColor="DarkGreen"/>
-            <BoxView Grid.Row="1" Grid.Column="0" BackgroundColor="DarkOrange"/>
-            <BoxView Grid.Row="1" Grid.Column="1" BackgroundColor="DarkRed"/>
+            <!-- Code für die Kachel "Mein Vorrat" -->
+            <Border Grid.Row="0" Grid.Column="0"
+                    BackgroundColor="White" StrokeShape="RoundRectangle 8">
+                <!-- Grid mit zwei Zeilen und zwei Spalten anlegen -->
+                <Grid Padding="8"
+                      ColumnDefinitions="*,*"
+                      HeightRequest="98"
+                      RowDefinitions="auto, *">
+                    <!-- Platzhalterbild in der ersten Zeile, ersten Spalte -->
+                    <Image HeightRequest="40"
+                           HorizontalOptions="Start"
+                           Source="dotnet_bot.png"/>
+                    <!-- Anzeige der Anzahl der Einträge, rechtsbündig ausgerichtet -->
+                    <Label Grid.Row="0"
+                           Grid.Column="1"
+                           FontAttributes="Bold"
+                           FontSize="20"
+                           HorizontalOptions="End"
+                           Text="12"/>
+                    <!-- Anzeige der Beschreibung -->
+                    <Label Grid.Row="1"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2"
+                            FontSize="20"
+                            Text="Mein Vorrat"
+                            VerticalOptions="End"/>
+                </Grid>
+            </Border>
+            
+            <!-- Code für die Kachel "Läuft bald ab" -->
+            <Border Grid.Row="0" Grid.Column="1"
+                    Stroke="Green"
+                    BackgroundColor="White" StrokeShape="RoundRectangle 8">
+                <!-- Grid mit zwei Zeilen und zwei Spalten anlegen -->
+                <Grid Padding="8"
+                      ColumnDefinitions="*,*"
+                      HeightRequest="98"
+                      RowDefinitions="auto, *">
+                    <!-- Platzhalterbild in der ersten Zeile, ersten Spalte -->
+                    <Image HeightRequest="40"
+                           HorizontalOptions="Start"
+                           Source="dotnet_bot.png"/>
+                    <!-- Anzeige der Anzahl der Einträge, rechtsbündig ausgerichtet -->
+                    <Label Grid.Row="0"
+                           Grid.Column="1"
+                           FontAttributes="Bold"
+                           FontSize="20"
+                           HorizontalOptions="End"
+                           Text="12"
+                           TextColor="Green"/>
+                    <!-- Anzeige der Beschreibung -->
+                    <Label Grid.Row="1"
+                           Grid.Column="0"
+                           Grid.ColumnSpan="2"
+                           FontSize="20"
+                           Text="Läuft bald ab..."
+                           TextColor="Green"
+                           VerticalOptions="End"/>
+                </Grid>
+            </Border>
+            
+            <!-- Code für die Kachel "Läuft heute ab" -->
+            <Border Grid.Row="1" Grid.Column="0"
+                    BackgroundColor="White" StrokeShape="RoundRectangle 8"
+                    Stroke="Orange">
+                <!-- Grid mit zwei Zeilen und zwei Spalten anlegen -->
+                <Grid Padding="8"
+                      ColumnDefinitions="*,*"
+                      HeightRequest="98"
+                      RowDefinitions="auto, *">
+                    <!-- Platzhalterbild in der ersten Zeile, ersten Spalte -->
+                    <Image HeightRequest="40"
+                           HorizontalOptions="Start"
+                           Source="dotnet_bot.png"/>
+                    <!-- Anzeige der Anzahl der Einträge, rechtsbündig ausgerichtet -->
+                    <Label Grid.Row="0"
+                           Grid.Column="1"
+                           FontAttributes="Bold"
+                           FontSize="20"
+                           HorizontalOptions="End"
+                           Text="12"
+                           TextColor="Orange"/>
+                    <!-- Anzeige der Beschreibung -->
+                    <Label Grid.Row="1"
+                           Grid.Column="0"
+                           Grid.ColumnSpan="2"
+                           FontSize="20"
+                           Text="Läuft heute ab..."
+                           TextColor="Orange"
+                           VerticalOptions="End"/>
+                </Grid>
+            </Border>
+            
+            <!-- Code für die Kachel "Abgelaufen" -->
+            <Border Grid.Row="1" Grid.Column="1"
+                    Stroke="Red"
+                    BackgroundColor="White" StrokeShape="RoundRectangle 8">
+                <!-- Grid mit zwei Zeilen und zwei Spalten anlegen -->
+                <Grid Padding="8"
+                      ColumnDefinitions="*,*"
+                      HeightRequest="98"
+                      RowDefinitions="auto, *">
+                    <!-- Platzhalterbild in der ersten Zeile, ersten Spalte -->
+                    <Image HeightRequest="40"
+                           HorizontalOptions="Start"
+                           Source="dotnet_bot.png"/>
+                    <!-- Anzeige der Anzahl der Einträge, rechtsbündig ausgerichtet -->
+                    <Label Grid.Row="0"
+                           Grid.Column="1"
+                           FontAttributes="Bold"
+                           FontSize="20"
+                           HorizontalOptions="End"
+                           Text="12"
+                           TextColor="Red"/>
+                    <!-- Anzeige der Beschreibung -->
+                    <Label Grid.Row="1"
+                           Grid.Column="0"
+                           Grid.ColumnSpan="2"
+                           FontSize="20"
+                           Text="Abgelaufen"
+                           VerticalOptions="End"
+                           TextColor="Red"/>
+                </Grid>
+            </Border>
             
             <Label Grid.Row="2" Grid.ColumnSpan="2" Margin="0,8,0,0"
                    Text="Meine Lagerorte" FontSize="24"/>
             
             <!-- Platzhalter für Lagerorte -->
             <VerticalStackLayout Grid.Row="3" Grid.ColumnSpan="2" Spacing="8">
-                <BoxView BackgroundColor="LightGray" HeightRequest="50"/>
-                <BoxView BackgroundColor="LightGray" HeightRequest="50"/>
-                <BoxView BackgroundColor="LightGray" HeightRequest="50"/>
+                   <Border BackgroundColor="White"
+                           StrokeShape="RoundRectangle 16"
+                           StrokeThickness="0">
+                          <!-- Definition des Schattens. Um natürlich zu wirken, kommt das Licht von oben (Offset x=0) -->
+                          <Border.Shadow>
+                                 <Shadow Opacity="0.2"
+                                         Radius="4"
+                                         Offset="0,4"/>
+                          </Border.Shadow>
+                          <!-- Grid mit zwei Zeilen und drei Spalten anlegen -->
+                          <Grid Padding="8"
+                                ColumnDefinitions="48, *, 24"
+                                ColumnSpacing="8"
+                                RowDefinitions="24, 24">
+                                 <!-- Platzhalterbild in der ersten Spalte und beiden Zeilen,
+                                          umgeben von einem hellblauen Kreis -->
+                                 <Border Grid.Row="0"
+                                         Grid.RowSpan="2"
+                                         Grid.Column="0"
+                                         BackgroundColor="AliceBlue"
+                                         StrokeShape="RoundRectangle 45"
+                                         StrokeThickness="0">
+                                        <Image Source="dotnet_bot.png"/>
+                                 </Border>
+                                 <!-- Anzeige des Lagerortnamens -->
+                                 <Label Grid.Column="1"
+                                        FontAttributes="Bold"
+                                        Text="Gefrierschrank"/>
+                                 <!-- Anzeige der Anzahl der Einträge -->
+                                 <Label Grid.Row="1"
+                                        Grid.Column="1"
+                                        Text="3 Einträge"
+                                        TextColor="DarkGray"/>
+                                 <!-- Darstellung eines einfachen Guillemet -->
+                                 <Label Grid.RowSpan="2"
+                                        Grid.Column="2"
+                                        Margin="0,0,8,0"
+                                        FontSize="36"
+                                        HorizontalOptions="End"
+                                        Text="›"
+                                        VerticalOptions="Center"/>
+                          </Grid>
+                   </Border>
+                   
             </VerticalStackLayout>
             
             <Button Grid.Row="4" Grid.Column="0" Text="Eintrag hinzufügen"
