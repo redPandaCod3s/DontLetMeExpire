@@ -1,8 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:DontLetMeExpire.ViewModels"
              x:Class="DontLetMeExpire.MainPage"
              Padding="16"
+             x:DataType="viewModels:MainViewModel"
              BackgroundColor="#f5f7fa">
 
     <ScrollView>
@@ -27,7 +29,7 @@
                            FontAttributes="Bold"
                            FontSize="20"
                            HorizontalOptions="End"
-                           Text="12"/>
+                           Text="{Binding StockCount}"/>
                     <!-- Anzeige der Beschreibung -->
                     <Label Grid.Row="1"
                             Grid.Column="0"
@@ -57,7 +59,7 @@
                            FontAttributes="Bold"
                            FontSize="20"
                            HorizontalOptions="End"
-                           Text="12"
+                           Text="{Binding ExpiringSoonCount}"
                            TextColor="Green"/>
                     <!-- Anzeige der Beschreibung -->
                     <Label Grid.Row="1"
@@ -89,7 +91,7 @@
                            FontAttributes="Bold"
                            FontSize="20"
                            HorizontalOptions="End"
-                           Text="12"
+                           Text="{Binding ExpiresTodayCount}"
                            TextColor="Orange"/>
                     <!-- Anzeige der Beschreibung -->
                     <Label Grid.Row="1"
@@ -121,7 +123,7 @@
                            FontAttributes="Bold"
                            FontSize="20"
                            HorizontalOptions="End"
-                           Text="12"
+                           Text="{Binding ExpiredCount}"
                            TextColor="Red"/>
                     <!-- Anzeige der Beschreibung -->
                     <Label Grid.Row="1"

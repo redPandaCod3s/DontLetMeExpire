@@ -3,6 +3,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:system="clr-namespace:System;assembly=System.Runtime"
+             xmlns:viewModels="clr-namespace:DontLetMeExpire.ViewModels"
+             x:DataType="viewModels:ItemViewModel"
              x:Class="DontLetMeExpire.Views.ItemPage"
              Title="ItemPage"
              HideSoftInputOnTapped="True">
@@ -28,23 +30,19 @@
                                  Padding="16"
                                  Spacing="8">
                 <Label Text="Name"/>
-                <Entry />
+                <Entry Text="{Binding Name}"/>
                 <Label Margin="0,8,0,0" Text="Lagerort" />
-                <Picker>
-                    <Picker.ItemsSource>
-                        <x:Array Type="{x:Type x:String}">
-                            <x:String>Gerfrierschrank</x:String>
-                            <x:String>Kühlschrank</x:String>
-                            <x:String>Vorratsschrank</x:String>
-                        </x:Array>
-                    </Picker.ItemsSource>
+                <Picker ItemDisplayBinding="{Binding Name}"
+                        ItemsSource="{Binding StorageLocations}"
+                        SelectedItem="{Binding SelectedLocation}">
                 </Picker>
-                
                 <Label Margin="0,8,0,0" Text="Verfallsdatum"/>
-                <DatePicker />
+                <DatePicker Date="{Binding ExpirationDate}"/>
                 <Label Margin="0,8,0,0" Text="Menge"/>
-                <Entry Keyboard="Numeric"/>
-                <Button Margin="0,8,0,0" Text="Speichern"/>
+                <Entry Keyboard="Numeric" Text="{Binding Amount}"/>
+                <Button Margin="0,8,0,0" 
+                        Command="{Binding SaveCommand}"
+                        Text="Speichern"/>
             </VerticalStackLayout>
         </Grid>
     </ScrollView>
