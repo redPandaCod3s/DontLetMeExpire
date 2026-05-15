@@ -2,7 +2,7 @@ using DontLetMeExpire.Models;
 
 namespace DontLetMeExpire.Services;
 
-public class DummyItemService
+public class DummyItemService : IItemService
 {
     private readonly List<Item> _items;
 

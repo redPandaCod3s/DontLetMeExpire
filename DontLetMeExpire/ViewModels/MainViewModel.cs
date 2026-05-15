@@ -4,7 +4,12 @@ namespace DontLetMeExpire.ViewModels;
 
 public class MainViewModel : ViewModelBase
 {
-    private readonly DummyItemService _dummyItemService = new();
+    private readonly IItemService _itemService;
+
+    public MainViewModel(IItemService itemService)
+    {
+        _itemService = itemService;
+    }
 
     private int _stockCount;
     private int _expiringSoonCount;
@@ -52,10 +57,10 @@ public class MainViewModel : ViewModelBase
     /// </summary>
     public async Task InitializeAsync()
     {
-        StockCount = (await _dummyItemService.GetAsync()).Count();
-        ExpiringSoonCount = (await _dummyItemService.GetExpiresSoonAsync()).Count();
-        ExpiresTodayCount = (await _dummyItemService.GetExpiresTodayAsync()).Count();
-        ExpiredCount = (await _dummyItemService.GetExpiredAsync()).Count();
+        StockCount = (await _itemService.GetAsync()).Count();
+        ExpiringSoonCount = (await _itemService.GetExpiresSoonAsync()).Count();
+        ExpiresTodayCount = (await _itemService.GetExpiresTodayAsync()).Count();
+        ExpiredCount = (await _itemService.GetExpiredAsync()).Count();
     }
     
 }

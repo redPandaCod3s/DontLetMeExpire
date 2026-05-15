@@ -10,10 +10,10 @@ namespace DontLetMeExpire.Views;
 public partial class ItemPage : ContentPage
 {
     private ItemViewModel _viewModel;
-    public ItemPage()
+    public ItemPage(ItemViewModel viewModel)
     {
         InitializeComponent();
-        BindingContext = _viewModel = new ItemViewModel();
+        BindingContext = _viewModel = viewModel;
     }
 
     override protected async void OnNavigatedTo(NavigatedToEventArgs args)

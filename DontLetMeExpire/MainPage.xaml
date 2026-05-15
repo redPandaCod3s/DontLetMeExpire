@@ -66,8 +66,7 @@
                            Grid.Column="0"
                            Grid.ColumnSpan="2"
                            FontSize="20"
-                           Text="Läuft bald ab..."
-                           TextColor="Green"
+                           Text="Läuft bald ab"
                            VerticalOptions="End"/>
                 </Grid>
             </Border>
@@ -98,8 +97,7 @@
                            Grid.Column="0"
                            Grid.ColumnSpan="2"
                            FontSize="20"
-                           Text="Läuft heute ab..."
-                           TextColor="Orange"
+                           Text="Läuft heute ab"
                            VerticalOptions="End"/>
                 </Grid>
             </Border>
@@ -131,8 +129,7 @@
                            Grid.ColumnSpan="2"
                            FontSize="20"
                            Text="Abgelaufen"
-                           VerticalOptions="End"
-                           TextColor="Red"/>
+                           VerticalOptions="End"/>
                 </Grid>
             </Border>
             
@@ -140,7 +137,7 @@
                    Text="Meine Lagerorte" FontSize="24"/>
             
             <!-- Platzhalter für Lagerorte -->
-            <VerticalStackLayout Grid.Row="3" Grid.ColumnSpan="2" Spacing="8">
+            <VerticalStackLayout Grid.Row="3" Grid.ColumnSpan="2" Spacing="8" Padding="8">
                    <Border BackgroundColor="White"
                            StrokeShape="RoundRectangle 16"
                            StrokeThickness="0">
@@ -184,7 +181,91 @@
                                         VerticalOptions="Center"/>
                           </Grid>
                    </Border>
-                   
+                   <Border BackgroundColor="White"
+                            StrokeShape="RoundRectangle 16"
+                            StrokeThickness="0">
+                            <Border.Shadow>
+                                <Shadow
+                                    Opacity="0.2"
+                                    Radius="4"
+                                    Offset="0,4" />
+                            </Border.Shadow>
+                            <Grid
+                                Padding="8"
+                                ColumnDefinitions="48, *, 24"
+                                ColumnSpacing="8"
+                                RowDefinitions="24,24">
+                                <Border
+                                    Grid.Row="0"
+                                    Grid.RowSpan="2"
+                                    Grid.Column="0"
+                                    BackgroundColor="AliceBlue"
+                                    StrokeShape="RoundRectangle 45"
+                                    StrokeThickness="0">
+                                    <Image Source="dotnet_bot.png" />
+                                </Border>
+                                <Label
+                                    Grid.Column="1"
+                                    FontAttributes="Bold"
+                                    Text="Kühlschrank" />
+                                <Label
+                                    Grid.Row="1"
+                                    Grid.Column="1"
+                                    Text="5 Einträge"
+                                    TextColor="DarkGray" />
+                                <Label
+                                    Grid.RowSpan="2"
+                                    Grid.Column="2"
+                                    Margin="0,0,8,0"
+                                    FontSize="36"
+                                    HorizontalOptions="End"
+                                    Text="›"
+                                    VerticalOptions="Center" />
+                            </Grid>
+                        </Border>
+                        <Border
+                            BackgroundColor="White"
+                            StrokeShape="RoundRectangle 16"
+                            StrokeThickness="0">
+                            <Border.Shadow>
+                                <Shadow
+                                    Opacity="0.2"
+                                    Radius="4"
+                                    Offset="0,4" />
+                            </Border.Shadow>
+                            <Grid
+                                Padding="8"
+                                ColumnDefinitions="48, *, 24"
+                                ColumnSpacing="8"
+                                RowDefinitions="24,24">
+                                <Border
+                                    Grid.Row="0"
+                                    Grid.RowSpan="2"
+                                    Grid.Column="0"
+                                    BackgroundColor="AliceBlue"
+                                    StrokeShape="RoundRectangle 45"
+                                    StrokeThickness="0">
+                                    <Image Source="dotnet_bot.png" />
+                                </Border>
+                                <Label
+                                    Grid.Column="1"
+                                    FontAttributes="Bold"
+                                    Text="Vorratsschrank" />
+                                <Label
+                                    Grid.Row="1"
+                                    Grid.Column="1"
+                                    Text="4 Einträge"
+                                    TextColor="DarkGray" />
+                                <Label
+                                    Grid.RowSpan="2"
+                                    Grid.Column="2"
+                                    Margin="0,0,8,0"
+                                    FontSize="36"
+                                    HorizontalOptions="End"
+                                    Text="›"
+                                    VerticalOptions="Center" />
+                            </Grid>
+                        </Border>
             </VerticalStackLayout>
             
             <Button Grid.Row="4" Grid.Column="0" Text="Eintrag hinzufügen"
@@ -192,7 +273,6 @@
             <Button Grid.Row="4" Grid.Column="1" Text="Neuen Ort anlegen"
                     BackgroundColor="White" BorderWidth="1"
                     BorderColor="#3d6dcc" TextColor="#3d6dcc"/>
-            
         </Grid>
     </ScrollView>
 
