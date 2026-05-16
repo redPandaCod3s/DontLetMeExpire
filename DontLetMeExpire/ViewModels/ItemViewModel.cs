@@ -1,10 +1,11 @@
 using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations;
 using DontLetMeExpire.Models;
 using DontLetMeExpire.Services;
 
 namespace DontLetMeExpire.ViewModels;
 
-public class ItemViewModel : ViewModelBase
+public class ItemViewModel : ValidationViewModelBase
 {
     private string _name;
     private DateTime _expirationDate;
@@ -17,7 +18,7 @@ public class ItemViewModel : ViewModelBase
 
     public ItemViewModel(IStorageLocationService storageLocationService, IItemService itemService)
     {
-            SaveCommand = new Command (async () => await SaveAsync(), CanSave);
+            SaveCommand = new Command (async () => await SaveAsync());
             _storageLocationService = storageLocationService;
             _itemService = itemService;
     }
@@ -32,6 +33,8 @@ public class ItemViewModel : ViewModelBase
     /// <summary>
     /// Name des Elements
     /// </summary>
+    [Required]
+    [Length(1,50)]
     public string Name
     {
         get => _name;
@@ -59,6 +62,7 @@ public class ItemViewModel : ViewModelBase
     /// <summary>
     /// Menge des Elements
     /// </summary>
+    [Range(1,10000)]
     public decimal Amount
     {
         get => _amount;
@@ -96,6 +100,9 @@ public class ItemViewModel : ViewModelBase
     /// </summary>
     private async Task SaveAsync()
     {
+        if(!Validate())
+            return;
+        
         // neues Element mit den Daten des ViewModels erstellen
         var item = new Item
         {
