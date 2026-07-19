@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:DontLetMeExpire.Controls"
              xmlns:viewModels="clr-namespace:DontLetMeExpire.ViewModels"
              x:Class="DontLetMeExpire.MainPage"
              Padding="16"
@@ -12,126 +13,43 @@
               ColumnDefinitions="*,*" RowSpacing="16" ColumnSpacing="16">
             
             <!-- Code für die Kachel "Mein Vorrat" -->
-            <Border Grid.Row="0" Grid.Column="0"
-                    BackgroundColor="White" StrokeShape="RoundRectangle 8">
-                <!-- Grid mit zwei Zeilen und zwei Spalten anlegen -->
-                <Grid Padding="8"
-                      ColumnDefinitions="*,*"
-                      HeightRequest="98"
-                      RowDefinitions="auto, *">
-                    <!-- Platzhalterbild in der ersten Zeile, ersten Spalte -->
-                    <Image HeightRequest="40"
-                           HorizontalOptions="Start"
-                           Source="dotnet_bot.png"/>
-                    <!-- Anzeige der Anzahl der Einträge, rechtsbündig ausgerichtet -->
-                    <Label Grid.Row="0"
-                           Grid.Column="1"
-                           FontAttributes="Bold"
-                           FontSize="20"
-                           HorizontalOptions="End"
-                           Text="{Binding StockCount}"/>
-                    <!-- Anzeige der Beschreibung -->
-                    <Label Grid.Row="1"
-                            Grid.Column="0"
-                            Grid.ColumnSpan="2"
-                            FontSize="20"
-                            Text="Mein Vorrat"
-                            VerticalOptions="End"/>
-                </Grid>
-            </Border>
+            <controls:DashboardTile
+                Grid.Row="0"
+                Grid.Column="0"
+                Count="{Binding StockCount}"
+                BorderColor="LightGray"
+                Icon="dotnet_bot.png"
+                Text="Mein Vorrat"/>
             
             <!-- Code für die Kachel "Läuft bald ab" -->
-            <Border Grid.Row="0" Grid.Column="1"
-                    Stroke="Green"
-                    BackgroundColor="White" StrokeShape="RoundRectangle 8">
-                <!-- Grid mit zwei Zeilen und zwei Spalten anlegen -->
-                <Grid Padding="8"
-                      ColumnDefinitions="*,*"
-                      HeightRequest="98"
-                      RowDefinitions="auto, *">
-                    <!-- Platzhalterbild in der ersten Zeile, ersten Spalte -->
-                    <Image HeightRequest="40"
-                           HorizontalOptions="Start"
-                           Source="dotnet_bot.png"/>
-                    <!-- Anzeige der Anzahl der Einträge, rechtsbündig ausgerichtet -->
-                    <Label Grid.Row="0"
-                           Grid.Column="1"
-                           FontAttributes="Bold"
-                           FontSize="20"
-                           HorizontalOptions="End"
-                           Text="{Binding ExpiringSoonCount}"
-                           TextColor="Green"/>
-                    <!-- Anzeige der Beschreibung -->
-                    <Label Grid.Row="1"
-                           Grid.Column="0"
-                           Grid.ColumnSpan="2"
-                           FontSize="20"
-                           Text="Läuft bald ab"
-                           VerticalOptions="End"/>
-                </Grid>
-            </Border>
+            <controls:DashboardTile
+                Grid.Row="0"
+                Grid.Column="1"
+                BorderColor="Green"
+                Count="{Binding ExpiringSoonCount}"
+                CountColor="Green"
+                Icon="dotnet_bot.png"
+                Text="Läuft bald ab"/>
             
             <!-- Code für die Kachel "Läuft heute ab" -->
-            <Border Grid.Row="1" Grid.Column="0"
-                    BackgroundColor="White" StrokeShape="RoundRectangle 8"
-                    Stroke="Orange">
-                <!-- Grid mit zwei Zeilen und zwei Spalten anlegen -->
-                <Grid Padding="8"
-                      ColumnDefinitions="*,*"
-                      HeightRequest="98"
-                      RowDefinitions="auto, *">
-                    <!-- Platzhalterbild in der ersten Zeile, ersten Spalte -->
-                    <Image HeightRequest="40"
-                           HorizontalOptions="Start"
-                           Source="dotnet_bot.png"/>
-                    <!-- Anzeige der Anzahl der Einträge, rechtsbündig ausgerichtet -->
-                    <Label Grid.Row="0"
-                           Grid.Column="1"
-                           FontAttributes="Bold"
-                           FontSize="20"
-                           HorizontalOptions="End"
-                           Text="{Binding ExpiresTodayCount}"
-                           TextColor="Orange"/>
-                    <!-- Anzeige der Beschreibung -->
-                    <Label Grid.Row="1"
-                           Grid.Column="0"
-                           Grid.ColumnSpan="2"
-                           FontSize="20"
-                           Text="Läuft heute ab"
-                           VerticalOptions="End"/>
-                </Grid>
-            </Border>
+            <controls:DashboardTile
+                Grid.Row="1"
+                Grid.Column="0"
+                BorderColor="Orange"
+                Count="{Binding ExpiresTodayCount}"
+                CountColor="Orange"
+                Icon="dotnet_bot.png"
+                Text="Läuft heute ab"/>
             
             <!-- Code für die Kachel "Abgelaufen" -->
-            <Border Grid.Row="1" Grid.Column="1"
-                    Stroke="Red"
-                    BackgroundColor="White" StrokeShape="RoundRectangle 8">
-                <!-- Grid mit zwei Zeilen und zwei Spalten anlegen -->
-                <Grid Padding="8"
-                      ColumnDefinitions="*,*"
-                      HeightRequest="98"
-                      RowDefinitions="auto, *">
-                    <!-- Platzhalterbild in der ersten Zeile, ersten Spalte -->
-                    <Image HeightRequest="40"
-                           HorizontalOptions="Start"
-                           Source="dotnet_bot.png"/>
-                    <!-- Anzeige der Anzahl der Einträge, rechtsbündig ausgerichtet -->
-                    <Label Grid.Row="0"
-                           Grid.Column="1"
-                           FontAttributes="Bold"
-                           FontSize="20"
-                           HorizontalOptions="End"
-                           Text="{Binding ExpiredCount}"
-                           TextColor="Red"/>
-                    <!-- Anzeige der Beschreibung -->
-                    <Label Grid.Row="1"
-                           Grid.Column="0"
-                           Grid.ColumnSpan="2"
-                           FontSize="20"
-                           Text="Abgelaufen"
-                           VerticalOptions="End"/>
-                </Grid>
-            </Border>
+            <controls:DashboardTile
+                Grid.Row="1"
+                Grid.Column="1"
+                BorderColor="Red"
+                Count="{Binding ExpiredCount}"
+                CountColor="Red"
+                Icon="dotnet_bot.png"
+                Text="Abgelaufen"/>
             
             <Label Grid.Row="2" Grid.ColumnSpan="2" Margin="0,8,0,0"
                    Text="Meine Lagerorte" FontSize="24"/>

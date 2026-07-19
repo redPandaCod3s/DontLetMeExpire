@@ -34,11 +34,11 @@ public abstract class ValidationViewModelBase : ViewModelBase
         }
     }
     
-    // Aufgrund des Crashes beim Aufruf der ItemPage wird der Indexer eingebaut
-    public IEnumerable<string> this[string propertyName] =>
-        _errors.ContainsKey(propertyName)
-            ? _errors[propertyName].Select(e => e.ErrorMessage)
-            : Enumerable.Empty<string>();
+    // Ersetzt die alte PropertyErrorMessages-Property
+    public List<string> this[string propertyName] =>
+        _errors.TryGetValue(propertyName, out var errors)
+            ? errors.Select(e => e.ErrorMessage).ToList()
+            : [];
     
     // Fügt der Liste von Fehlern alle Fehler einer Eigenschaft hinzu
     protected virtual void AddErrors(string propertyName, 
@@ -46,7 +46,9 @@ public abstract class ValidationViewModelBase : ViewModelBase
     {
         // Falls es die gleichen Fehler bereits in der Liste gibt,
         // springen wir direkt aus dem Code heraus
-        if (_errors.ContainsKey(propertyName) && _errors[propertyName].SequenceEqual(validationResults))
+        if (_errors.TryGetValue(propertyName, out var existingErrors) && 
+            existingErrors.Select(e => e.ErrorMessage)
+                .SequenceEqual(validationResults.Select(e => e.ErrorMessage)))
         {
             return;
         }
@@ -57,7 +59,7 @@ public abstract class ValidationViewModelBase : ViewModelBase
         OnPropertyChanged(nameof(HasErrors));
         OnPropertyChanged(nameof(ErrorMessages));
         OnPropertyChanged(nameof(PropertyErrorMessages));
-        OnPropertyChanged("Item");
+        OnPropertyChanged("Item[]");
     }
     
     // Entfernt alle Fehler einer Eigenschaft aus der Liste der Fehler
@@ -71,7 +73,7 @@ public abstract class ValidationViewModelBase : ViewModelBase
             OnPropertyChanged(nameof(HasErrors));
             OnPropertyChanged(nameof(ErrorMessages));
             OnPropertyChanged(nameof(PropertyErrorMessages));
-            OnPropertyChanged("Item");
+            OnPropertyChanged("Item[]");
         }
     }
     
@@ -138,7 +140,7 @@ public abstract class ValidationViewModelBase : ViewModelBase
         OnPropertyChanged(nameof(HasErrors));
         OnPropertyChanged(nameof(ErrorMessages));
         OnPropertyChanged(nameof(PropertyErrorMessages));
-        OnPropertyChanged("Item");
+        OnPropertyChanged("Item[]");
         return isValid;
     }
 }

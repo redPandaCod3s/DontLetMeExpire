@@ -8,6 +8,7 @@
              x:Class="DontLetMeExpire.Views.ItemPage"
              Title="ItemPage"
              HideSoftInputOnTapped="True">
+    
     <ContentPage.Resources>
         <ResourceDictionary>
             <toolkit:IsListNotNullOrEmptyConverter x:Key="IsListNotNullOrEmptyConverter"/>
@@ -49,6 +50,8 @@
                                  BackgroundColor="#b81c1c"/>
                         <Label Grid.Column="1" FontSize="24" VerticalOptions="End"
                                Text="!" TextColor="#b81c1c"/>
+                        <Label Grid.Row="0" Grid.Column="2" Margin="0,8,0,0"
+                               Text="Fehler!"/>
                         <Label Grid.Row="1" Grid.Column="2"
                                Text="Es sind einige Fehler aufgetreten"/>
                         <VerticalStackLayout Grid.Row="2" Grid.Column="2" Margin="8"
@@ -76,8 +79,7 @@
                 <Label Margin="0,8,0,0" Text="Lagerort" />
                 <Picker ItemDisplayBinding="{Binding Name}"
                         ItemsSource="{Binding StorageLocations}"
-                        SelectedItem="{Binding SelectedLocation}">
-                </Picker>
+                        SelectedItem="{Binding SelectedLocation}"/>
                 <Label Margin="0,8,0,0" Text="Verfallsdatum"/>
                 <DatePicker Date="{Binding ExpirationDate}"/>
                 <Label Margin="0,8,0,0" Text="Menge"/>
