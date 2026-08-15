@@ -1,7 +1,7 @@
 {
-  "version": 3,
+  "version": 4,
   "targets": {
-    "net10.0-android36.0": {
+    "net10.0-android": {
       "CommunityToolkit.Maui/14.1.0": {
         "type": "package",
         "dependencies": {
@@ -2520,7 +2520,7 @@
         }
       }
     },
-    "net10.0-android36.0/android-arm64": {
+    "net10.0-android/android-arm64": {
       "CommunityToolkit.Maui/14.1.0": {
         "type": "package",
         "dependencies": {
@@ -5039,7 +5039,7 @@
         }
       }
     },
-    "net10.0-android36.0/android-x64": {
+    "net10.0-android/android-x64": {
       "CommunityToolkit.Maui/14.1.0": {
         "type": "package",
         "dependencies": {
@@ -7558,7 +7558,7 @@
         }
       }
     },
-    "net10.0-android36.0/iossimulator-x64": {
+    "net10.0-android/iossimulator-x64": {
       "CommunityToolkit.Maui/14.1.0": {
         "type": "package",
         "dependencies": {
@@ -10077,7 +10077,7 @@
         }
       }
     },
-    "net10.0-android36.0/maccatalyst-x64": {
+    "net10.0-android/maccatalyst-x64": {
       "CommunityToolkit.Maui/14.1.0": {
         "type": "package",
         "dependencies": {
@@ -12596,7 +12596,7 @@
         }
       }
     },
-    "net10.0-android36.0/win-x64": {
+    "net10.0-android/win-x64": {
       "CommunityToolkit.Maui/14.1.0": {
         "type": "package",
         "dependencies": {
@@ -15115,7 +15115,7 @@
         }
       }
     },
-    "net10.0-ios26.4": {
+    "net10.0-ios": {
       "CommunityToolkit.Maui/14.1.0": {
         "type": "package",
         "dependencies": {
@@ -15614,7 +15614,7 @@
         }
       }
     },
-    "net10.0-ios26.4/android-arm64": {
+    "net10.0-ios/android-arm64": {
       "CommunityToolkit.Maui/14.1.0": {
         "type": "package",
         "dependencies": {
@@ -16113,7 +16113,7 @@
         }
       }
     },
-    "net10.0-ios26.4/android-x64": {
+    "net10.0-ios/android-x64": {
       "CommunityToolkit.Maui/14.1.0": {
         "type": "package",
         "dependencies": {
@@ -16612,7 +16612,7 @@
         }
       }
     },
-    "net10.0-ios26.4/iossimulator-x64": {
+    "net10.0-ios/iossimulator-x64": {
       "CommunityToolkit.Maui/14.1.0": {
         "type": "package",
         "dependencies": {
@@ -17111,7 +17111,7 @@
         }
       }
     },
-    "net10.0-ios26.4/maccatalyst-x64": {
+    "net10.0-ios/maccatalyst-x64": {
       "CommunityToolkit.Maui/14.1.0": {
         "type": "package",
         "dependencies": {
@@ -17610,7 +17610,7 @@
         }
       }
     },
-    "net10.0-ios26.4/win-x64": {
+    "net10.0-ios/win-x64": {
       "CommunityToolkit.Maui/14.1.0": {
         "type": "package",
         "dependencies": {
@@ -18109,7 +18109,7 @@
         }
       }
     },
-    "net10.0-maccatalyst26.4": {
+    "net10.0-maccatalyst": {
       "CommunityToolkit.Maui/14.1.0": {
         "type": "package",
         "dependencies": {
@@ -18608,7 +18608,7 @@
         }
       }
     },
-    "net10.0-maccatalyst26.4/android-arm64": {
+    "net10.0-maccatalyst/android-arm64": {
       "CommunityToolkit.Maui/14.1.0": {
         "type": "package",
         "dependencies": {
@@ -19107,7 +19107,7 @@
         }
       }
     },
-    "net10.0-maccatalyst26.4/android-x64": {
+    "net10.0-maccatalyst/android-x64": {
       "CommunityToolkit.Maui/14.1.0": {
         "type": "package",
         "dependencies": {
@@ -19606,7 +19606,7 @@
         }
       }
     },
-    "net10.0-maccatalyst26.4/iossimulator-x64": {
+    "net10.0-maccatalyst/iossimulator-x64": {
       "CommunityToolkit.Maui/14.1.0": {
         "type": "package",
         "dependencies": {
@@ -20105,7 +20105,7 @@
         }
       }
     },
-    "net10.0-maccatalyst26.4/maccatalyst-x64": {
+    "net10.0-maccatalyst/maccatalyst-x64": {
       "CommunityToolkit.Maui/14.1.0": {
         "type": "package",
         "dependencies": {
@@ -20604,7 +20604,7 @@
         }
       }
     },
-    "net10.0-maccatalyst26.4/win-x64": {
+    "net10.0-maccatalyst/win-x64": {
       "CommunityToolkit.Maui/14.1.0": {
         "type": "package",
         "dependencies": {
@@ -21103,7 +21103,7 @@
         }
       }
     },
-    "net10.0-windows10.0.19041": {
+    "net10.0-windows10.0.19041.0": {
       "CommunityToolkit.Maui/14.1.0": {
         "type": "package",
         "dependencies": {
@@ -22037,7 +22037,7 @@
         }
       }
     },
-    "net10.0-windows10.0.19041/android-arm64": {
+    "net10.0-windows10.0.19041.0/android-arm64": {
       "CommunityToolkit.Maui/14.1.0": {
         "type": "package",
         "dependencies": {
@@ -22903,7 +22903,7 @@
         }
       }
     },
-    "net10.0-windows10.0.19041/android-x64": {
+    "net10.0-windows10.0.19041.0/android-x64": {
       "CommunityToolkit.Maui/14.1.0": {
         "type": "package",
         "dependencies": {
@@ -23769,7 +23769,7 @@
         }
       }
     },
-    "net10.0-windows10.0.19041/iossimulator-x64": {
+    "net10.0-windows10.0.19041.0/iossimulator-x64": {
       "CommunityToolkit.Maui/14.1.0": {
         "type": "package",
         "dependencies": {
@@ -24635,7 +24635,7 @@
         }
       }
     },
-    "net10.0-windows10.0.19041/maccatalyst-x64": {
+    "net10.0-windows10.0.19041.0/maccatalyst-x64": {
       "CommunityToolkit.Maui/14.1.0": {
         "type": "package",
         "dependencies": {
@@ -25501,7 +25501,7 @@
         }
       }
     },
-    "net10.0-windows10.0.19041/win-x64": {
+    "net10.0-windows10.0.19041.0/win-x64": {
       "CommunityToolkit.Maui/14.1.0": {
         "type": "package",
         "dependencies": {
@@ -31993,25 +31993,25 @@
     }
   },
   "projectFileDependencyGroups": {
-    "net10.0-android36.0": [
+    "net10.0-android": [
       "CommunityToolkit.Maui >= 14.1.0",
       "Microsoft.Extensions.Logging.Debug >= 10.0.0",
       "Microsoft.Maui.Controls >= 10.0.41",
       "Microsoft.NET.ILLink.Tasks >= 10.0.9"
     ],
-    "net10.0-ios26.4": [
+    "net10.0-ios": [
       "CommunityToolkit.Maui >= 14.1.0",
       "Microsoft.Extensions.Logging.Debug >= 10.0.0",
       "Microsoft.Maui.Controls >= 10.0.41",
       "Microsoft.NET.ILLink.Tasks >= 10.0.9"
     ],
-    "net10.0-maccatalyst26.4": [
+    "net10.0-maccatalyst": [
       "CommunityToolkit.Maui >= 14.1.0",
       "Microsoft.Extensions.Logging.Debug >= 10.0.0",
       "Microsoft.Maui.Controls >= 10.0.41",
       "Microsoft.NET.ILLink.Tasks >= 10.0.9"
     ],
-    "net10.0-windows10.0.19041": [
+    "net10.0-windows10.0.19041.0": [
       "CommunityToolkit.Maui >= 14.1.0",
       "Microsoft.Extensions.Logging.Debug >= 10.0.0",
       "Microsoft.Maui.Controls >= 10.0.41"
@@ -32051,19 +32051,23 @@
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net10.0-android36.0": {
+        "net10.0-android": {
+          "framework": "net10.0-android36.0",
           "targetAlias": "net10.0-android",
           "projectReferences": {}
         },
-        "net10.0-ios26.4": {
+        "net10.0-ios": {
+          "framework": "net10.0-ios26.4",
           "targetAlias": "net10.0-ios",
           "projectReferences": {}
         },
-        "net10.0-maccatalyst26.4": {
+        "net10.0-maccatalyst": {
+          "framework": "net10.0-maccatalyst26.4",
           "targetAlias": "net10.0-maccatalyst",
           "projectReferences": {}
         },
-        "net10.0-windows10.0.19041": {
+        "net10.0-windows10.0.19041.0": {
+          "framework": "net10.0-windows10.0.19041",
           "targetAlias": "net10.0-windows10.0.19041.0",
           "projectReferences": {}
         }
@@ -32081,7 +32085,8 @@
       "SdkAnalysisLevel": "10.0.300"
     },
     "frameworks": {
-      "net10.0-android36.0": {
+      "net10.0-android": {
+        "framework": "net10.0-android36.0",
         "targetAlias": "net10.0-android",
         "dependencies": {
           "CommunityToolkit.Maui": {
@@ -32407,7 +32412,8 @@
           "System.Xml.XPath.XDocument": "(,5.0.32767]"
         }
       },
-      "net10.0-ios26.4": {
+      "net10.0-ios": {
+        "framework": "net10.0-ios26.4",
         "targetAlias": "net10.0-ios",
         "dependencies": {
           "CommunityToolkit.Maui": {
@@ -32733,7 +32739,8 @@
           "System.Xml.XPath.XDocument": "(,5.0.32767]"
         }
       },
-      "net10.0-maccatalyst26.4": {
+      "net10.0-maccatalyst": {
+        "framework": "net10.0-maccatalyst26.4",
         "targetAlias": "net10.0-maccatalyst",
         "dependencies": {
           "CommunityToolkit.Maui": {
@@ -33060,7 +33067,8 @@
           "System.Xml.XPath.XDocument": "(,5.0.32767]"
         }
       },
-      "net10.0-windows10.0.19041": {
+      "net10.0-windows10.0.19041.0": {
+        "framework": "net10.0-windows10.0.19041",
         "targetAlias": "net10.0-windows10.0.19041.0",
         "dependencies": {
           "CommunityToolkit.Maui": {

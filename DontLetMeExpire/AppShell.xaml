@@ -6,15 +6,31 @@
     xmlns:local="clr-namespace:DontLetMeExpire"
     xmlns:views="clr-namespace:DontLetMeExpire.Views"
     Title="DontLetMeExpire"
-    Shell.FlyoutBehavior="Flyout">
-
+    FlyoutBehavior="Flyout">
+    
+    <!-- Kopfzeile -->
+    <Shell.FlyoutHeader>
+        <Border Margin="0"
+                Padding="24"
+                BackgroundColor="#3d6dcc"
+                StrokeThickness="0">
+            <VerticalStackLayout Margin="10">
+                <Label FontSize="24"
+                       HorizontalOptions="Center"
+                       Text="Don't let me expire"
+                       TextColor="White"/>
+            </VerticalStackLayout>
+        </Border>
+    </Shell.FlyoutHeader>
+    
+    <!-- Navigationseinträge -->
     <ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
     <ShellContent 
-        Title="Neuer Eintrag"
-        ContentTemplate="{DataTemplate views:ItemPage}"
-        Route="ItemPage"/>
+        Title="Einstellungen"
+        ContentTemplate="{DataTemplate views:SettingsPage}"
+        Route="SettingsPage"/>
 
 </Shell>

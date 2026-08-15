@@ -186,11 +186,18 @@
                         </Border>
             </VerticalStackLayout>
             
-            <Button Grid.Row="4" Grid.Column="0" Text="Eintrag hinzufügen"
-                    BackgroundColor="#3d6dcc"/>
-            <Button Grid.Row="4" Grid.Column="1" Text="Neuen Ort anlegen"
-                    BackgroundColor="White" BorderWidth="1"
-                    BorderColor="#3d6dcc" TextColor="#3d6dcc"/>
+            <Button Grid.Row="4" 
+                    Grid.Column="0" 
+                    Text="Eintrag hinzufügen"
+                    BackgroundColor="#3d6dcc"
+                    Command="{Binding NavigateToAddItemCommand}"/>
+            <Button Grid.Row="4" 
+                    Grid.Column="1" 
+                    Text="Neuen Ort anlegen"
+                    BackgroundColor="White" 
+                    BorderWidth="1"
+                    BorderColor="#3d6dcc" 
+                    TextColor="#3d6dcc"/>
         </Grid>
     </ScrollView>
 
