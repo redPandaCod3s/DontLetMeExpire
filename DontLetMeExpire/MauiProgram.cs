@@ -24,12 +24,14 @@ public static class MauiProgram
         builder.Logging.AddDebug();
 #endif
         builder.Services.AddSingleton<IStorageLocationService, DummyStorageLocationService>();
+        builder.Services.AddSingleton<INavigationService, NavigationService>();
         builder.Services.AddSingleton<IItemService, DummyItemService>();
         builder.Services.AddTransient<MainViewModel>();
         builder.Services.AddTransient<MainPage>();
-        builder.Services.AddTransient<ItemViewModel>();
         builder.Services.AddTransient<ItemPage>();
-        builder.Services.AddSingleton<INavigationService, NavigationService>();
+        builder.Services.AddTransient<ItemsPage>();
+        builder.Services.AddTransient<ItemViewModel>();
+        builder.Services.AddTransient<ItemsViewModel>();
         return builder.Build();
     }
 }

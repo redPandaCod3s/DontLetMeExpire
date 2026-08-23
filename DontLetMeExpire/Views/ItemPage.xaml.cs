@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using DontLetMeExpire.ViewModels;
 
 namespace DontLetMeExpire.Views;
-
+[QueryProperty(nameof(ItemId), nameof(ItemId))]
 public partial class ItemPage : ContentPage
 {
     private ItemViewModel _viewModel;
@@ -15,10 +15,12 @@ public partial class ItemPage : ContentPage
         InitializeComponent();
         BindingContext = _viewModel = viewModel;
     }
+    
+    public string? ItemId { get; set; }
 
     override protected async void OnNavigatedTo(NavigatedToEventArgs args)
     {
-        await _viewModel.InitializeAsync();
+        await _viewModel.InitializeAsync(ItemId);
         base.OnNavigatedTo(args);
     }
 }

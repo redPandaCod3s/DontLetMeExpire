@@ -8,7 +8,8 @@ public class DummyItemService : IItemService
 
     public DummyItemService()
     {
-        _items = [..DummyData.Items];
+        //_items = [..DummyData.Items];
+        _items = [];
     }
     
     public Task<IEnumerable<Item>> GetAsync()

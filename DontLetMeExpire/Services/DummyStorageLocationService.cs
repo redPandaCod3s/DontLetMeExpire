@@ -4,19 +4,40 @@ namespace DontLetMeExpire.Services;
 
 public class DummyStorageLocationService : IStorageLocationService
 {
-    private readonly DummyItemService _itemService;
+    private readonly IItemService _itemService;
     private readonly List<StorageLocation> _storageLocations = [];
 
-    public DummyStorageLocationService()
+    public DummyStorageLocationService(IItemService itemService)
     {
-        _storageLocations = [..DummyData.Locations];
-        _itemService = new DummyItemService();
+        //_storageLocations = [..DummyData.Locations];
+        _storageLocations = [];
+        //_itemService = new DummyItemService();
+        _itemService = itemService;
     }
 
     public Task<IEnumerable<StorageLocation>> GetAsync()
     {
         var locations = _storageLocations.OrderBy(l => l.Name).ToList();
         return Task.FromResult(locations.AsEnumerable());
+    }
+
+    public async Task<IEnumerable<StorageLocationWithItemCount>> GetWithItemCountAsync()
+    {
+        var locations = _storageLocations.OrderBy(x => x.Name).ToList();
+        var locationWithItemCount = new List<StorageLocationWithItemCount>();
+
+        foreach (var location in locations)
+        {
+            var items = await _itemService.GetByLocationAsync(location.Id);
+            locationWithItemCount.Add(new StorageLocationWithItemCount
+            {
+                Id = location.Id,
+                Name = location.Name,
+                Icon = location.Icon,
+                ItemCount = items.Count()
+            });
+        }
+        return locationWithItemCount;
     }
 
     public Task<StorageLocation?> GetByIdAsync(string id)

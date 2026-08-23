@@ -16,9 +16,16 @@ public class ItemViewModel : ValidationViewModelBase
     private readonly IStorageLocationService _storageLocationService;
     private readonly IItemService _itemService;
 
-    public ItemViewModel(IStorageLocationService storageLocationService, IItemService itemService)
+    private string _id;
+    private string _title;
+    private readonly INavigationService _navigationService;
+
+    public ItemViewModel(INavigationService navigationService,
+                            IStorageLocationService storageLocationService, 
+                                IItemService itemService)
     {
             SaveCommand = new Command (async () => await SaveAsync());
+            _navigationService = navigationService;
             _storageLocationService = storageLocationService;
             _itemService = itemService;
     }
@@ -78,10 +85,22 @@ public class ItemViewModel : ValidationViewModelBase
         set => SetProperty(ref _image, value);
     }
 
+    public string Title
+    {
+        get => _title;
+        set => SetProperty(ref _title, value);
+    }
+
+    public string Id
+    {
+        get => _id;
+        set => SetProperty(ref _id, value);
+    }
+
     /// <summary>
     /// Initialisiert das ViewModel asynchron
     /// </summary>
-    public async Task InitializeAsync()
+    public async Task InitializeAsync(string? idemId = null)
     {
         //Speicherort laden
         var locations = await _storageLocationService.GetAsync();
@@ -92,7 +111,34 @@ public class ItemViewModel : ValidationViewModelBase
         {
             StorageLocations.Add(location);
         }
-        SelectedLocation = StorageLocations.FirstOrDefault();
+        
+        // Prüfen, ob die Id eines Vorratseintrags übergeben wurde
+        if (!string.IsNullOrEmpty(idemId))
+        {
+            // ID wurde übergeben, wir laden also den bestehenden Eintrag
+            var item = await _itemService.GetByIdAsync(idemId);
+            if (item != null)
+            {
+                Id = item.Id;
+                Name = item.Name;
+                ExpirationDate = item.ExpirationDate;
+                SelectedLocation = StorageLocations.FirstOrDefault(x => x.Id == item.StorageLocationId);
+                Image = item.Image;
+                Amount = item.Amount;
+                Title = item.Name;
+            }
+        }
+        else
+        {
+            // Id wurde nicht übergeben, wir zeigen also leer Eingabefelder an
+            Id = string.Empty;
+            Name = string.Empty;
+            ExpirationDate = DateTime.Today;
+            SelectedLocation = StorageLocations.First();
+            Image = string.Empty;
+            Amount = 1;
+            Title = "Neuer Eintrag";
+        }
     }
 
     /// <summary>
@@ -106,6 +152,7 @@ public class ItemViewModel : ValidationViewModelBase
         // neues Element mit den Daten des ViewModels erstellen
         var item = new Item
         {
+            Id = Id,
             Name = Name,
             ExpirationDate = ExpirationDate,
             Amount = Amount,
@@ -120,6 +167,9 @@ public class ItemViewModel : ValidationViewModelBase
         ExpirationDate = DateTime.Today;
         Amount = 0;
         SelectedLocation = StorageLocations.First();
+        
+        // zurück zur vorherigen Seite navigieren
+        await _navigationService.GoToAsync("..");
     }
 
     private bool CanSave()
